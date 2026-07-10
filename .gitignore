@@ -1,0 +1,12 @@
+# Source PDFs and generated review artifacts are not published.
+source/
+work/
+
+# Local tooling
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Local server/log files
+*.log
