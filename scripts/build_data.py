@@ -11,7 +11,7 @@ PARTS = [
     ROOT / "work" / "explanations_31_60.json",
     ROOT / "work" / "explanations_61_90.json",
 ]
-OUT = ROOT / "exams" / "kmu-115-physchem" / "data.js"
+OUT = ROOT / "exams" / "kmu-115-physics" / "data.js"
 EXAM_DIR = OUT.parent
 
 PHYSICS_UNITS = {
@@ -75,6 +75,8 @@ def main() -> None:
     for no in range(1, 91):
         src = raw_by_no[no]
         exp = exp_by_no[no]
+        if src["subject"] != "物理":
+            continue
         if str(exp.get("answer", "")).upper() != src["answer"]:
             raise RuntimeError(f"第 {no} 題詳解答案 {exp.get('answer')} 與官方 {src['answer']} 不一致")
         image_path = EXAM_DIR / src["image"]
@@ -114,18 +116,18 @@ def main() -> None:
         )
 
     quiz = {
-        "id": "at-tutor-kmu-115-physchem",
+        "id": "at-tutor-kmu-115-physics",
         "siteTitle": "AT_tutor｜後醫考古題自學平台",
-        "title": "高醫 115 學年度學士後醫學系｜物理及化學",
-        "subject": "物理及化學",
-        "description": "原題截圖、五選一自動批改、物理／化學分科、正式模擬、繁中逐題詳解、錯題重練與教師端統計。",
+        "title": "高醫 115 學年度學士後醫學系｜物理",
+        "subject": "物理",
+        "description": "高醫 115 原卷中的純物理 45 題：原題截圖、五選一自動批改、正式模擬、繁中逐題詳解、錯題重練與教師端統計。",
+        "scoringNote": "物理 45 題：原卷第 1–15 題每題 1 分，答錯扣 0.25 分；第 31–60 題每題 2 分，答錯扣 0.5 分；未作答不扣分，兩計分區各最低 0 分。",
         "sourceLabel": "使用者提供之 Google Drive：115高醫試題.pdf、115高醫解答.pdf",
         "sourceUrl": "https://drive.google.com/drive/folders/1EG8uFQPnpE54WF2F9YGyZuThZXZ-NfF5?usp=drive_link",
         "school": "高雄醫學大學",
         "examYear": "115學年度",
-        "questionCount": 90,
-        "totalScore": 150,
-        "timeMinutes": 100,
+        "questionCount": 45,
+        "totalScore": 75,
         "updatedAt": date.today().isoformat(),
         "questions": questions,
     }
@@ -135,7 +137,6 @@ def main() -> None:
         "output": str(OUT),
         "questions": len(questions),
         "physics": sum(q["subject"] == "物理" for q in questions),
-        "chemistry": sum(q["subject"] == "化學" for q in questions),
         "flagged": flagged,
     }, ensure_ascii=False, indent=2))
 

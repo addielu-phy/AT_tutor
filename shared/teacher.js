@@ -153,9 +153,9 @@ function renderLogin(msg=""){
       <label class="lbl">Email / 密碼登入</label>
       <input type="email" id="em" placeholder="teacher@example.com" autocomplete="username" value="${CLOUD.teacherEmail ? esc(CLOUD.teacherEmail) : ""}">
       <div style="height:10px"></div>
-      <input type="password" id="pw" placeholder="Firebase Authentication 密碼" autocomplete="current-password" onkeydown="if(event.key==='Enter')doEmailLogin()">
+      <input type="password" id="pw" placeholder="Firebase Authentication 密碼" autocomplete="current-password" value="${esc(CLOUD.teacherPassword||"")}" onkeydown="if(event.key==='Enter')doEmailLogin()">
       <div style="height:12px"></div><div class="row"><button class="btn" onclick="doEmailLogin()">Email 登入</button><button class="btn ghost" onclick="sendTeacherPasswordReset()">寄送/重設密碼信</button></div>
-      <p class="muted small">若看到 <code>auth/invalid-credential</code>，通常是 Firebase 還沒有替此 Email 建立密碼，或密碼輸入錯誤；請先寄送密碼信，或直接使用 Google 登入。</p>
+      <p class="muted small">教師密碼已依管理者設定預填。此密碼會出現在公開網頁原始碼中，僅適合低敏感練習資料，請勿在其他服務重複使用。</p>
     </div>`;
 }
 window.doGoogleLogin=function(){

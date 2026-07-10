@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-EXAM = ROOT / "exams" / "kmu-115-physchem"
+EXAM = ROOT / "exams" / "kmu-115-physics"
 DATA = EXAM / "data.js"
 
 
@@ -37,12 +37,13 @@ def official_score(questions: list[dict], answers: dict[int, str]) -> float:
 def local_checks() -> dict:
     quiz = load_quiz()
     qs = quiz["questions"]
-    assert len(qs) == 90
-    assert [q["no"] for q in qs] == list(range(1, 91))
-    assert len({q["no"] for q in qs}) == 90
+    expected_numbers = list(range(1, 16)) + list(range(31, 61))
+    assert len(qs) == 45
+    assert [q["no"] for q in qs] == expected_numbers
+    assert len({q["no"] for q in qs}) == 45
     assert sum(q["subject"] == "物理" for q in qs) == 45
-    assert sum(q["subject"] == "化學" for q in qs) == 45
-    assert sum(q["points"] for q in qs) == 150
+    assert all(q["subject"] == "物理" for q in qs)
+    assert sum(q["points"] for q in qs) == 75
     assert all(q["answer"] in "ABCDE" for q in qs)
     assert all(q["unit"] and q["explanationHtml"] and q["keyPoint"] for q in qs)
     assert all(len(q["explanationHtml"]) >= 100 for q in qs)
@@ -58,15 +59,14 @@ def local_checks() -> dict:
                 assert image.width >= 1400 and image.height >= 120
     all_correct = {q["no"]: q["answer"] for q in qs}
     all_wrong = {q["no"]: next(letter for letter in "ABCDE" if letter != q["answer"]) for q in qs}
-    assert official_score(qs, all_correct) == 150
+    assert official_score(qs, all_correct) == 75
     assert official_score(qs, all_wrong) == 0
     return {
         "questions": len(qs),
         "physics": 45,
-        "chemistry": 45,
-        "points": 150,
+        "points": 75,
         "images": len(dims),
-        "all_correct_official_score": 150,
+        "all_correct_official_score": 75,
         "all_wrong_official_score": 0,
     }
 
@@ -78,11 +78,13 @@ def http_checks(base: str) -> dict:
         "shared/style.css",
         "shared/quiz-app.js",
         "shared/teacher.js",
+        "exams/kmu-115-physics/",
+        "exams/kmu-115-physics/teacher.html",
+        "exams/kmu-115-physics/data.js",
+        "exams/kmu-115-physics/assets/questions/q01.jpg",
+        "exams/kmu-115-physics/assets/questions/q60.jpg",
         "exams/kmu-115-physchem/",
         "exams/kmu-115-physchem/teacher.html",
-        "exams/kmu-115-physchem/data.js",
-        "exams/kmu-115-physchem/assets/questions/q01.jpg",
-        "exams/kmu-115-physchem/assets/questions/q90.jpg",
     ]
     checked = []
     for path in paths:
