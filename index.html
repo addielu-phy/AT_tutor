@@ -4,55 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#12261f">
-<title>AT_tutor｜後醫考古題自學平台</title>
-<meta name="description" content="AT_tutor 後醫考古題自學平台：原題截圖、五選一自動批改、逐題詳解、錯題練習與教師版統計。">
+<title>AT_tutor｜物理自學評量平台</title>
+<meta name="description" content="AT_tutor物理自學評量平台：官方原題截圖、自動批改、非選題結構化作答、逐題詳解、錯題練習與教師統計。">
 <link rel="stylesheet" href="shared/style.css">
-<style>
-.hero{padding:42px 0 22px}.eyebrow{letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);font-weight:900;font-size:.82rem}.hero h1{font-size:clamp(2.2rem,7vw,4.8rem);max-width:820px;margin:.2em 0}.hero h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:720px;color:var(--soft);font-size:1.08rem}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.catalog{margin-top:28px}.exam-card{position:relative;overflow:hidden}.exam-card:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(var(--accent),var(--accent2))}.exam-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}.subject-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.subject-grid>div{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--card2)}.subject-grid b{display:block;font-size:1.15rem}.subject-grid span{color:var(--muted);font-size:.82rem}@media(max-width:720px){.subject-grid{grid-template-columns:repeat(2,1fr)}}
-</style>
+<style>.hero{padding:42px 0 22px}.eyebrow{letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);font-weight:900;font-size:.82rem}.hero h1{font-size:clamp(2.2rem,7vw,4.8rem);max-width:820px;margin:.2em 0}.hero h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:760px;color:var(--soft);font-size:1.08rem}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.catalog{margin-top:28px}.exam-card{position:relative;overflow:hidden}.exam-card:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(var(--accent),var(--accent2))}.exam-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}.exam-card+.exam-card{margin-top:18px}</style>
 </head>
 <body>
 <main class="wrap">
-  <header class="hero">
-    <div class="eyebrow">Adaptive Test Tutor</div>
-    <h1><span>AT_tutor</span><br>後醫考古題自學平台</h1>
-    <p>把原始考卷轉成可反覆練習的自學系統：先看原題截圖，五選一作答後自動批改，答案與繁中詳解才會顯示；錯題會保留供下一輪加強。</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="exams/kmu-115-physics/">開始高醫 115 物理練習</a>
-      <a class="btn ghost" href="teacher.html">教師版入口</a>
-    </div>
-  </header>
-
-  <section class="catalog">
-    <div class="spread"><div><div class="eyebrow">Exam Library</div><h2>考古題題庫</h2></div><span class="chip good">獨立 AT_tutor 網站</span></div>
-    <article class="card exam-card">
-      <div class="spread"><div><span class="chip unit">高雄醫學大學</span><h2>115 學年度學士後醫學系<br>物理</h2></div><div class="score">45</div></div>
-      <div class="exam-meta"><span class="chip">純物理 45 題</span><span class="chip">滿分 75</span><span class="chip">原題號 1–15、31–60</span></div>
-      <p class="muted">支援隨手 15 題、物理全題練習、45 題正式模擬與錯題重練；每題保留原題圖片與逐題繁中解析。</p>
-      <div class="row"><a class="btn primary" href="exams/kmu-115-physics/">進入學生端</a><a class="btn" href="exams/kmu-115-physics/teacher.html">本卷教師端</a><a class="btn ghost" href="https://drive.google.com/drive/folders/1EG8uFQPnpE54WF2F9YGyZuThZXZ-NfF5" target="_blank" rel="noopener">來源資料夾</a></div>
-    </article>
-  </section>
-
-  <section class="card">
-    <h2>高醫 115 來源涵蓋情況</h2>
-    <div class="subject-grid">
-      <div><b>物理</b><span>45 題＋官方答案｜已建置</span></div>
-      <div><b>化學</b><span>依本版需求不納入</span></div>
-      <div><b>英文</b><span>只有官方答案｜待補題本</span></div>
-      <div><b>生物及生化</b><span>只有官方答案｜待補題本</span></div>
-      <div><b>計算機概論</b><span>只有官方答案｜待補題本</span></div>
-    </div>
-    <p class="muted small">本版只提供物理題；不會用只有答案、沒有原題的科目編造題目。</p>
-  </section>
-
-  <section class="grid">
-    <div class="card col-6"><h3>學生自學</h3><p>純物理原題截圖、作答後顯示答案、逐題詳解、錯題模式、正式模擬與本機歷史紀錄。</p></div>
-    <div class="card col-6"><h3>教師追蹤</h3><p>學生交卷先保存在本機，Firebase 可用時同步教師端；可查看學生練習次數、常錯題、單元弱點及匯出 CSV。</p></div>
-  </section>
-
-  <footer class="foot">AT_tutor 為獨立自學網站，不與 PhAI 或會考平台混用。原題版權屬原出題單位；本站僅供授權範圍內教學與自學使用。</footer>
-</main>
-<button class="btn sm" id="themeToggle" aria-label="切換深淺色">☀️</button>
-<script>(function(){const k='at_tutor_theme';const s=localStorage.getItem(k)||'dark';document.documentElement.dataset.theme=s;const b=document.getElementById('themeToggle');b.textContent=s==='light'?'🌙':'☀️';b.onclick=()=>{const n=document.documentElement.dataset.theme==='light'?'dark':'light';document.documentElement.dataset.theme=n;localStorage.setItem(k,n);b.textContent=n==='light'?'🌙':'☀️';};})();</script>
-</body>
-</html>
+<header class="hero"><div class="eyebrow">Adaptive Test Tutor</div><h1><span>AT_tutor</span><br>物理自學評量平台</h1><p>把公開考卷轉成可反覆練習的學習系統：保留原題圖表，支援自動批改、非選題作答、逐題詳解、錯題重練與教師端統計。</p><div class="hero-actions"><a class="btn primary" href="exams/ceec-115-physics-g10-g11/">開始115分科高一高二精選卷</a><a class="btn ghost" href="teacher.html">教師版入口</a></div></header>
+<section class="catalog"><div class="spread"><div><div class="eyebrow">Exam Library</div><h2>物理題庫</h2></div><span class="chip good">GitHub Pages自學平台</span></div>
+<article class="card exam-card"><div class="spread"><div><span class="chip unit">大考中心｜115分科測驗</span><h2>物理科高一高二範圍精選卷</h2></div><div class="score">13</div></div><div class="exam-meta"><span class="chip">13題・50分</span><span class="chip">高一4題</span><span class="chip">高二9題</span><span class="chip">單選＋多選＋非選</span></div><p class="muted">逐題依108課綱篩選高一必修與高二選修物理I、II；排除解題需高三選修物理III、IV的電磁學與量子／波動光學題。保留官方原題圖表與原配分。</p><div class="row"><a class="btn primary" href="exams/ceec-115-physics-g10-g11/">進入學生端</a><a class="btn" href="exams/ceec-115-physics-g10-g11/teacher.html">本卷教師端</a><a class="btn" href="exams/ceec-115-physics-g10-g11/downloads/ceec_115_physics_g10_g11_exam.pdf">下載學生考卷PDF</a><a class="btn ghost" href="https://www.ceec.edu.tw/files/file_pool/1/0Q194365922929011621/05-115%E5%88%86%E7%A7%91%E6%B8%AC%E9%A9%97%E7%89%A9%E7%90%86%E8%80%83%E7%A7%91%E8%A9%A6%E5%8D%B7.pdf" target="_blank" rel="noopener">大考中心完整原卷</a></div></article>
+<article class="card exam-card"><div class="spread"><div><span class="chip unit">高雄醫學大學｜115</span><h2>學士後醫學系物理</h2></div><div class="score">45</div></div><div class="exam-meta"><span class="chip">純物理45題</span><span class="chip">滿分75</span><span class="chip">原題號1–15、31–60</span></div><p class="muted">支援隨手15題、物理全題練習、正式模擬與錯題重練；每題保留原題圖片與逐題繁中解析。</p><div class="row"><a class="btn primary" href="exams/kmu-115-physics/">進入學生端</a><a class="btn" href="exams/kmu-115-physics/teacher.html">本卷教師端</a></div></article></section>
+<section class="grid"><div class="card col-6"><h3>學生自學</h3><p>官方／原始題圖、分年級模式、正式模擬、自動批改、部分給分、逐題詳解與錯題重練。</p></div><div class="card col-6"><h3>教師追蹤</h3><p>Firebase可用時同步教師端；可查看學生練習次數、常錯題、單元弱點及匯出CSV。</p></div></section>
+<footer class="foot">原題版權屬原出題單位；本站標明來源，僅供教學與自學使用。公開網站不含真實學生資料。</footer>
+</main><button class="btn sm" id="themeToggle" aria-label="切換深淺色">☀️</button><script>(function(){const k='at_tutor_theme';const s=localStorage.getItem(k)||'dark';document.documentElement.dataset.theme=s;const b=document.getElementById('themeToggle');b.textContent=s==='light'?'🌙':'☀️';b.onclick=()=>{const n=document.documentElement.dataset.theme==='light'?'dark':'light';document.documentElement.dataset.theme=n;localStorage.setItem(k,n);b.textContent=n==='light'?'🌙':'☀️';};})();</script>
+</body></html>

@@ -76,7 +76,7 @@ function dedupeAndSort(){
   rows.sort((a,b)=>(b.date||0)-(a.date||0));
 }
 function stats(){
-  const full = rows.filter(r => r.mode === "full");
+  const full = rows.filter(r => r.mode === "full" || r.mode === "all");
   const assessable = rows.filter(r => r.ids && r.ids.length);
   const students = {};
   rows.forEach(r => { const k=r.name || "未命名"; if(!students[k]) students[k]=[]; students[k].push(r); });
@@ -86,7 +86,7 @@ function stats(){
     (r.ids || []).forEach(no => { if(qAtt[no] !== undefined) qAtt[no]++; });
     (r.wrongIds || []).forEach(no => { if(qWrong[no] !== undefined) qWrong[no]++; });
   });
-  const qStats = QUIZ.questions.map(q => ({no:q.no, unit:q.unit, answer:q.answer, attempts:qAtt[q.no]||0, wrong:qWrong[q.no]||0, rate:qAtt[q.no]?qWrong[q.no]/qAtt[q.no]:0}));
+  const qStats = QUIZ.questions.map(q => ({no:q.no, unit:q.unit, answer:q.answerText || q.answer || "非選題", attempts:qAtt[q.no]||0, wrong:qWrong[q.no]||0, rate:qAtt[q.no]?qWrong[q.no]/qAtt[q.no]:0}));
   const unitMap = {};
   QUIZ.questions.forEach(q => { if(!unitMap[q.unit]) unitMap[q.unit]={unit:q.unit, attempts:0, wrong:0, qn:0}; unitMap[q.unit].qn++; });
   qStats.forEach(q => { unitMap[q.unit].attempts += q.attempts; unitMap[q.unit].wrong += q.wrong; });
